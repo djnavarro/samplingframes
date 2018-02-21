@@ -1,0 +1,223 @@
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>UNSW Computational Cognitive Science</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <link href="./css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+<body>
+    
+    <!-- ####################### Heading ####################### -->
+	<a name="top"></a>
+	<h1 style="text-align:left" id="header" class="header">Welcome to the reasoning tutorial!</h1>
+
+    
+    <!-- ####################### Start page ####################### -->
+
+	<div class="start">
+		<!-- Text box for the splash page -->
+		<div class="start" style="text-align:left; border:2px solid; padding:10px;  width:800px; font-size:120%">
+			<p>In this week's tutorial we'll go through a very brief inductive reasoning task, one that is  connected to some of the content from Dan Navarro's lectures, and then go through a short data analysis exercise. The idea is to give you a sense of how real research in this area works, and how the data from these experiments can be analysed.<br>
+            <br>
+            In fact, the exercise that we're going to cover is closely connected with an ongoing research project into human reasoning. With that in mind, we'd like to request your consent to include your responses as part of our project, so the task starts out with a consent form. We'd definitely appreciate it if you do agree to participate, but your are under no obligation at all to do so - if you choose not to agree, the task will proceed as normal because the tutorial is built around it, but your data won't be retained as part of the project. It's totally up to you.</p>
+            
+
+		<!-- Next button for the splash page -->
+        <div style=" width:800px; font-size:120%">
+            <div style="float:right"> 
+                <br>
+                <input type="button" id="splashButton" class="start" value="Start!" 
+                       onclick="splashButtonClick()">
+            </div>
+        </div>
+	</div>
+    </div>
+
+	<!-- ####################### Consent ####################### -->
+	<div class="consent" style="display:none">
+		<!-- Text box for the splash page -->
+		<div class="consent" style="text-align:left; border:2px solid; padding:10px;  width:800px; font-size:120%">
+			
+			<p align="right">Approval No 2574</p>
+
+
+			<p align="center"><b>THE UNIVERSITY OF NEW SOUTH WALES<br>
+			PARTICIPANT INFORMATION STATEMENT</b><br><br>
+			Theories of inductive reasoning
+			</p>
+
+			<p><b>Participant Selection and Purpose of Study</b></p>
+			<p>You are invited to participate in a study of how human reasoning works.  We hope to learn what information people find most useful in guiding their judgments about the world. You were selected as a possible participant in this study because of your enrolment in psychology at UNSW.</p>
+
+			<p><b>Description of Study and Risks</b></p>
+			<p>If you decide to participate, we will present you with some reasoning problems in which you need to use the (possibly incomplete) information to make judgements (or guesses) about the truth of different propositions. Detailed instructions will be provided once the task begins. The exact number of problems you need to solve depends on which version of the task the computer assigns you to, but the on-screen display will inform you of how much further you have to go. The task should take approximately 10 minutes to complete including reading time.</p>
+
+			<p>No discomforts or inconveniences besides some boredom are reasonably expected. No risks are reasonably expected as a result of your participation in this study. We cannot and do not guarantee or promise that you will receive any benefits from this study.</p>
+
+			<p><b>Confidentiality and Disclosure of Information</b></p>
+			<p>Any information that is obtained in connection with this study and that can be identified with you will remain confidential and will be disclosed only with your permission or except as required by law.  If you give us your permission by clicking on the “I agree” button below, we plan to publish the results in academic journals and discuss the results at scientific conferences. In any publication, information will be provided in such a way that you cannot be identified.</p>
+
+			<p><b>Recompense to participants</b></p>
+			<p>There is no recompence for participation.</p>
+
+			<p><b>Your consent</b></p>
+			<p>Your decision whether or not to participate will not prejudice your future relations with The University of New South Wales.  If you decide to participate, you are free to withdraw your consent and to discontinue participation at any time without prejudice.</p>
+
+			<p><b>Inquiries</b></p>
+			<p>If you have any questions or concerns following your participation, Associate Professor Daniel Navarro (+61 4 2148 8402, email. dan.navarro@unsw.edu.au) will be happy to address them. Complaints about the study may be directed to UNSW’s Research Ethics and Compliance Support, (phone +61 2 9385 4235 or +61 2 9385 4958, email. humanethics@unsw.edu.au).<p> 
+
+			<p>Please keep a copy of this information sheet (you can download the pdf <a href="./wtf/info.pdf" target="_blank">here</a>)</p>
+
+			<br>
+			<p align="center"><b>PARTICIPANT CONSENT</b></p>
+
+			By continuing, you are making a decision whether or not to participate.  Clicking the button below indicates that, having read the information provided on the participant information sheet, you have decided to participate. 
+
+			<br>
+			<p align="center">
+                <input type="button" id="consentButton" class="consent" value="I agree" onclick="consentButtonClick()">
+			</p>
+			
+
+			<p>To withdraw your consent, click on the button below (Note that you will also get a second opportunity to withdraw your consent at the end of the task should you change your mind). The task will continue because it is part of the class you are enrolled in, but your responses will not be retained.</p>
+            
+            <p align="center">
+                <input type="button" id="nonConsentButton" class="consent" value="I do not agree" onclick="nonconsentButtonClick()">
+			</p>
+		</div>
+	</div>
+
+
+
+	<!-- ####################### Demographics ####################### -->
+	
+	<div class="demographics" style="display:none">
+		<div class="demographics" style="text-align:left; border:2px solid; padding:10px;  width:800px; font-size:120%">
+
+	
+			<!-- Gender -->
+	 		<label for="gender"><b>Gender: &nbsp;</b></label>
+	  		<input type="radio" name="gender" value="male" /> Male &nbsp; 
+	  		<input type="radio" name="gender" value="female" /> Female &nbsp;
+	  		<input type="radio" name="gender" value="other" /> Other<br /><br />
+
+			<!-- Age -->
+	  		<label for="age"><b>Age: &nbsp;</b></label><input id="age" name="age" /><br /><br />
+
+		</div>
+		<br>
+		
+		<!-- Demographics  button -->
+        <div style=" width:800px; font-size:120%">
+            <div style="float:right"> 
+                <input type="button" class="demographics" id="demographicsButton" value="Next >"
+                       onclick="demographicsButtonClick()">
+            </div>
+        </div>
+	</div>	
+
+    
+    
+    <!-- ####################### Experiment Screen ####################### -->
+
+    <div id="expt" class="expt" style="text-align:left; border:2px solid; padding:10px; width:800px; display:none">
+        <img id="exptpic" src="./img/intro.png" width=800px>
+        <br>
+        
+        <div class="table" id="responsebuttons", style="display:none">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            <!-- labels / buttons -->
+            <div class="table-row">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="table-cell"><b>Definitely does not</b> &nbsp;&nbsp;</div>
+                <div class="table-cell"><input type="button" id="button1" onclick="buttonPress(1)" value="1" style="width:35px; font-size:120%"></div>
+                &nbsp;&nbsp;
+                <div class="table-cell"><input type="button" id="button2" onclick="buttonPress(2)" value="2" style="width:35px; font-size:120%"></div>  
+                &nbsp;&nbsp;
+                <div class="table-cell"><input type="button" id="button3" onclick="buttonPress(3)" value="3" style="width:35px; font-size:120%"></div>
+                &nbsp;&nbsp;
+                <div class="table-cell"><input type="button" id="button4" onclick="buttonPress(4)" value="4" style="width:35px; font-size:120%"></div>
+                                &nbsp;&nbsp;
+                <div class="table-cell"><input type="button" id="button5" onclick="buttonPress(5)" value="5" style="width:35px; font-size:120%"></div>
+                                &nbsp;&nbsp;
+                <div class="table-cell"><input type="button" id="button6" onclick="buttonPress(6)" value="6" style="width:35px; font-size:120%"></div>
+                                &nbsp;&nbsp;
+                <div class="table-cell"><input type="button" id="button7" onclick="buttonPress(7)" value="7" style="width:35px; font-size:120%"></div>
+                                &nbsp;&nbsp;
+                <div class="table-cell"><input type="button" id="button8" onclick="buttonPress(8)" value="8" style="width:35px; font-size:120%"></div>
+                                &nbsp;&nbsp;
+                <div class="table-cell"><input type="button" id="button9" onclick="buttonPress(9)" value="9" style="width:35px; font-size:120%"></div>
+                                &nbsp;&nbsp;
+                <div class="table-cell"><input type="button" id="button10" onclick="buttonPress(10)" value="10" style="width:35px; font-size:120%"></div>
+                <div class="table-cell">&nbsp;&nbsp;<b>Definitely does</b></div>
+            </div>
+            <br><br>
+        </div>
+    </div>
+        <!-- next  button -->
+        <div class="expt" style="width:800px; font-size:120%; display:none">
+            <br>
+            <div style="float:right"> 
+                <input type="button" id="exptNext" value="Next >"
+                       onclick="exptNextButtonClick()">
+            </div>
+        </div>
+
+
+    
+    <input id="dummy" type="button", style="display:none">
+
+   
+    <!-- ####################### Post-expt questions ####################### -->
+
+    <div class="postexpt" style="width:800px;display:none">
+    <div id="postexpt" class="postexpt" style="text-align:left; border:2px solid; padding:10px; width:800px; display:none;font-size: 120%">
+        
+        <p>Before finishing up, we have a couple of additional follow up questions we'd like to ask. The first one is just a question to see what information you remember. This doesn't affect your payment if you get it wrong, but we do need this information to help with our data analysis. The second question asks for your overall impressions of the study.</p>
+        
+        <br>
+        
+        <label for="memcheck">1. Which of the following patient names appeared earlier? </label><br>
+	  		<input type="radio" name="memcheck" class="checkRadio" value="JackNguyen">Jack Nguyen<br>
+	  		<input type="radio" name="memcheck" class="checkRadio" value="WilliamCisneros">William Cisneros<br>
+	  		<input type="radio" name="memcheck" class="checkRadio" value="SimonGreen">Simon Green<br>
+		
+        <br><br>
+        
+        <p>2. Please briefly tell us how you made your judgments about the patient records:</p>
+        <textarea rows="4" id="postreflect"></textarea>    
+
+        <br>
+        
+    </div>
+
+        <br><br>
+        <input type="button" class="postexpt" id="postbutton" onclick="goToEnd()" value="Done" style="width:150px; font-size:120%; float:right">
+
+</div>
+    
+    <!-- ####################### wrap up ####################### -->
+	
+	<div id="end" class="end" style="display:none">
+		<div class="end" style="text-align:left; border:2px solid; padding:10px; font-size:120%; width:800px">
+			<p id="endmsg">Thank you for participating. When everyone has finished, your tutor will start the next part of the tutorial.<br><br>
+            Please note that although this is a real experiment and forms part of your tutorial, you are not in any way obligated to participate in the experiment. If you do choose to allow us to include your data in the experiment we would appreciate it, but if you would prefer not to have your data included, click on the button below.</p>
+        <input type="button" id="withdrawbutton" onclick="withdraw()" value="Withdraw" style="width:150px; font-size:100%; float:center"> 
+            <p id="endmsg2">Otherwise, you can close the browser window and wait for the tutorial to continue!</p>
+		</div>
+	</div>
+    
+	<!-- ####################### Scripts ####################### -->
+	
+
+	<!-- Script to define the experiment and run it -->
+    <script src="./js/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="./js/experiment.js" type="text/javascript"></script>
+    
+
+</body>
+</html>

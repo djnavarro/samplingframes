@@ -1,0 +1,800 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Planet Sodor</title>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/jspsych.js"></script>
+    <script src="./js/plugins/jspsych-text.js"></script>
+    <script src="./js/plugins/jspsych-single-stim.js"></script>
+    <script src="./js/plugins/jspsych-survey-multi-choice.js"></script>
+	<script src="./js/plugins/jspsych-button-response.js"></script>
+    <link href="./js/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+  </head>
+
+ <body>
+      
+      
+    <!-- ####################### Heading ####################### -->
+	<a name="top"></a>
+	<h1 style="text-align:center; width:1200px" id="header" class="header">&nbsp; UNSW Computational Cognitive Science</h1>
+
+
+    <!-- ####################### Start page ####################### -->
+
+	<div class="start" style="width: 1000px">
+		<!-- Text box for the splash page -->
+		<div class="start" style="text-align:left; border:0px solid; padding:10px;  width:800px; float:right; font-size:90%">
+			<p>Thanks for accepting the HIT. <b>"The Spheres of Sodor"</b> is a short psychological study investigating how people make decisions. It involves 
+                the following steps:</p>
+			<ol>
+				<li> We ask for demographic information (not connected to your Amazon ID)<br></li>
+				<li> Because this is a University research project, we ask for your informed consent. (The format of the consent form is a  standard university document, so it sometimes looks a little weird on MTurk)<br></li>
+				<li> The study then explains how to do the task in detail. You will need to pass a short test to 
+                     check that you understand how the study works.<br></li> 
+				<li> Next comes the experiment itself.<br></li>
+				<li> At the end, we'll give you the completion code you need to get paid for the HIT.</li>
+			</ol>
+			<p>
+                The total time taken should be about 5 minutes. Please <u>don't</u> use the "back" button on 
+                your browser or close the window until you reach the end and receive your completion code. 
+                This is very likely to break the experiment and may make it difficult for you to get paid. 
+                However, if something does go wrong, please contact us! When you're ready to begin, click 
+                on the "start" button below.</p>
+
+		<!-- Next button for the splash page -->
+               <p align="center"> <input type="button" id="splashButton" class="start jspsych-btn" value="Start!" 
+                       onclick="splashButtonClick()"> </p>
+            
+            </div>
+	</div>
+
+	<!-- ####################### Consent ####################### -->
+	<div class="consent" style="display:none; width:1000px">
+		<!-- Text box for the splash page -->
+		<div class="consent" style="text-align:left; border:0px solid; padding:10px;  width:800px; font-size:90%; float:right">
+			
+			<p align="right">Approval No 2574</p>
+
+
+			<p align="center"><b>THE UNIVERSITY OF NEW SOUTH WALES<br>
+			PARTICIPANT INFORMATION STATEMENT</b><br><br>
+			Theories of inductive reasoning
+			</p>
+
+			<p><b>Participant Selection and Purpose of Study</b></p>
+			<p>You are invited to participate in a study of how human reasoning works.  We hope to learn what information people find most useful in guiding their judgments about the world. You were selected as a possible participant in this study because you accepted our HIT on Amazon Mechanical Turk.</p>
+
+			<p><b>Description of Study and Risks</b></p>
+			<p>If you decide to participate, we will present you with some reasoning problems in which you need to use the (possibly incomplete) information to make judgements (or guesses) about the truth of different propositions. Detailed instructions will be provided once the task begins. The exact number of problems you need to solve depends on which version of the task the computer assigns you to, but the on-screen display will inform you of how much further you have to go. The task should take approximately 5 minutes to complete including reading time.</p>
+
+			<p>No discomforts or inconveniences besides some boredom are reasonably expected. No risks are reasonably expected as a result of your participation in this study. We cannot and do not guarantee or promise that you will receive any benefits from this study.</p>
+
+			<p><b>Confidentiality and Disclosure of Information</b></p>
+			<p>Any information that is obtained in connection with this study and that can be identified with you will remain confidential and will be disclosed only with your permission or except as required by law.  If you give us your permission by clicking on the “I agree” button below, we plan to publish the results in academic journals and discuss the results at scientific conferences. In any publication, information will be provided in such a way that you cannot be identified.</p>
+
+			<p><b>Recompense to participants</b></p>
+			<p>As stated on the Amazon Mechanical Turk page, the pay for completing this HIT is <b>US$0.85.</b></p>
+
+			<p><b>Your consent</b></p>
+			<p>Your decision whether or not to participate will not prejudice your future relations with The University of New South Wales.  If you decide to participate, you are free to withdraw your consent and to discontinue participation at any time without prejudice.</p>
+
+			<p><b>Inquiries</b></p>
+			<p>If you have any questions or concerns following your participation, Associate Professor Daniel Navarro (+61 4 2148 8402, email. d.navarro@unsw.edu.au) will be happy to address them. Complaints about the study may be directed to UNSW’s Research Ethics and Compliance Support, (phone +61 2 9385 4235 or +61 2 9385 4958, email. humanethics@unsw.edu.au).<p> 
+
+			<p>Please keep a copy of this information sheet (you can download the pdf <a href="./wtf/info.pdf" target="_blank">here</a>)</p>
+
+			<br>
+			<p align="center"><b>PARTICIPANT CONSENT</b></p>
+
+			By continuing, you are making a decision whether or not to participate.  Clicking the button below indicates that, having read the information provided on the participant information sheet, you have decided to participate. 
+
+			<br>
+			<p align="center">
+                <input type="button" id="consentButton" class="consent jspsych-btn" value="I agree" onclick="consentButtonClick()" >
+			</p>
+			
+
+			<p>To withdraw your consent, simply close the browser tab and return the HIT. Your data will be deleted from our records.</p>
+		</div>
+        <br><br>
+	</div>
+
+
+	<!-- ####################### Demographics ####################### -->
+	
+	<div class="demographics" style="display:none; align:center; width: 1000px">
+		<div class="demographics" style="text-align:left; border:0px solid; padding:10px;  width:800px; font-size:90%; float:right">
+			<!-- Explanatory text -->
+            <p font-size:110%><b>Demographic information:</b></p>
+			<p>
+                We need this information for our records, but it is kept completely separate from 
+                information about your Amazon ID. As long as you finish the experiment you will get 
+                paid no matter what you put here, so please be honest.
+            </p><br>
+	
+			<!-- Gender -->
+	 		<label for="gender"><b>Gender: &nbsp;</b></label>
+	  		<input type="radio" name="gender" value="male" /> Male &nbsp; 
+	  		<input type="radio" name="gender" value="female" /> Female &nbsp;
+	  		<input type="radio" name="gender" value="other" /> Other<br /><br />
+
+			<!-- Age -->
+	  		<label for="age"><b>Age: &nbsp;</b></label><input id="age" name="age" /><br /><br />
+
+			<!-- Language -->
+	  		<label for="language"><b>Native Language(s): &nbsp;</b></label>
+            <input id="language" name="language" /><br /><br />
+
+			<!-- Country -->
+			<label for="country"><b>Country you live in: &nbsp;</b></label>  
+	  		<select name="country" id="country" class='drop-menu'>
+	    		<option>Afghanistan</option>
+                <option>&Aring;land Islands</option>
+                <option>Albania</option>
+                <option>Algeria</option>
+                <option>American Samoa</option>
+                <option>Andorra</option>
+                <option>Angola</option>
+                <option>Anguilla</option>
+                <option>Antarctica</option>
+                <option>Antigua and Barbuda</option>
+                <option>Argentina</option>
+                <option>Armenia</option>
+                <option>Aruba</option>
+                <option>Australia</option>
+                <option>Austria</option>
+                <option>Azerbaijan</option>
+                <option>Bahamas</option>
+                <option>Bahrain</option>
+                <option>Bangladesh</option>
+                <option>Barbados</option>
+                <option>Belarus</option>
+                <option>Belgium</option>
+                <option>Belize</option>
+                <option>Benin</option>
+                <option>Bermuda</option>
+                <option>Bhutan</option>
+                <option>Bolivia</option>
+                <option>Bosnia and Herzegovina</option>
+                <option>Botswana</option>
+                <option>Bouvet Island</option>
+                <option>Brazil</option>
+                <option>British Indian Ocean territory</option>
+                <option>Brunei Darussalam</option>
+                <option>Bulgaria</option>
+                <option>Burkina Faso</option>
+                <option>Burundi</option>
+                <option>Cambodia</option>
+                <option>Cameroon</option>
+                <option>Canada</option>
+                <option>Cape Verde</option>
+                <option>Cayman Islands</option>
+                <option>Central African Republic</option>
+                <option>Chad</option>
+                <option>Chile</option>
+                <option>China</option>
+                <option>Christmas Island</option>
+                <option>Cocos (Keeling) Islands</option>
+                <option>Colombia</option>
+                <option>Comoros</option>
+                <option>Congo</option>
+                <option>Congo, Democratic Republic</option>
+                <option>Cook Islands</option>
+                <option>Costa Rica</option>
+                <option>C&ocirc;te d'Ivoire (Ivory Coast)</option>
+                <option>Croatia (Hrvatska)</option>
+                <option>Cuba</option>
+                <option>Cyprus</option>
+                <option>Czech Republic</option>
+                <option>Denmark</option>
+                <option>Djibouti</option>
+                <option>Dominica</option>
+                <option>Dominican Republic</option>
+                <option>East Timor</option>
+                <option>Ecuador</option>
+                <option>Egypt</option>
+                <option>El Salvador</option>
+                <option>Equatorial Guinea</option>
+                <option>Eritrea</option>
+                <option>Estonia</option>
+                <option>Ethiopia</option>
+                <option>Falkland Islands</option>
+                <option>Faroe Islands</option>
+                <option>Fiji</option>
+                <option>Finland</option>
+                <option>France</option>
+                <option>French Guiana</option>
+                <option>French Polynesia</option>
+                <option>French Southern Territories</option>
+                <option>Gabon</option>
+                <option>Gambia</option>
+                <option>Georgia</option>
+                <option>Germany</option>
+                <option>Ghana</option>
+                <option>Gibraltar</option>
+                <option>Greece</option>
+                <option>Greenland</option>
+                <option>Grenada</option>
+                <option>Guadeloupe</option>
+                <option>Guam</option>
+                <option>Guatemala</option>
+                <option>Guinea</option>
+                <option>Guinea-Bissau</option>
+                <option>Guyana</option>
+                <option>Haiti</option>
+                <option>Heard and McDonald Islands</option>
+                <option>Honduras</option>
+                <option>Hong Kong</option>
+                <option>Hungary</option>
+                <option>Iceland</option>
+                <option>India</option>
+                <option>Indonesia</option>
+                <option>Iran</option>
+                <option>Iraq</option>
+                <option>Ireland</option>
+                <option>Israel</option>
+                <option>Italy</option>
+                <option>Jamaica</option>
+                <option>Japan</option>
+                <option>Jordan</option>
+                <option>Kazakhstan</option>
+                <option>Kenya</option>
+                <option>Kiribati</option>
+                <option>Korea (north)</option>
+                <option>Korea (south)</option>
+                <option>Kuwait</option>
+                <option>Kyrgyzstan</option>
+                <option>Lao People's Democratic Republic</option>
+                <option>Latvia</option>
+                <option>Lebanon</option>
+                <option>Lesotho</option>
+                <option>Liberia</option>
+                <option>Libyan Arab Jamahiriya</option>
+                <option>Liechtenstein</option>
+                <option>Lithuania</option>
+                <option>Luxembourg</option>
+                <option>Macao</option>
+                <option>Macedonia, Former Yugoslav Republic Of</option>
+                <option>Madagascar</option>
+                <option>Malawi</option>
+                <option>Malaysia</option>
+                <option>Maldives</option>
+                <option>Mali</option>
+                <option>Malta</option>
+                <option>Marshall Islands</option>
+                <option>Martinique</option>
+                <option>Mauritania</option>
+                <option>Mauritius</option>
+                <option>Mayotte</option>
+                <option>Mexico</option>
+                <option>Micronesia</option>
+                <option>Moldova</option>
+                <option>Monaco</option>
+                <option>Mongolia</option>
+                <option>Montenegro</option>
+                <option>Montserrat</option>
+                <option>Morocco</option>
+                <option>Mozambique</option>
+                <option>Myanmar</option>
+                <option>Namibia</option>
+                <option>Nauru</option>
+                <option>Nepal</option>
+                <option>Netherlands</option>
+                <option>Netherlands Antilles</option>
+                <option>New Caledonia</option>
+                <option>New Zealand</option>
+                <option>Nicaragua</option>
+                <option>Niger</option>
+                <option>Nigeria</option>
+                <option>Niue</option>
+                <option>Norfolk Island</option>
+                <option>Northern Mariana Islands</option>
+                <option>Norway</option>
+                <option>Oman</option>
+                <option>Pakistan</option>
+                <option>Palau</option>
+                <option>Palestinian Territories</option>
+                <option>Panama</option>
+                <option>Papua New Guinea</option>
+                <option>Paraguay</option>
+                <option>Peru</option>
+                <option>Philippines</option>
+                <option>Pitcairn</option>
+                <option>Poland</option>
+                <option>Portugal</option>
+                <option>Puerto Rico</option>
+                <option>Qatar</option>
+                <option>R&eacute;union</option>
+                <option>Romania</option>
+                <option>Russian Federation</option>
+                <option>Rwanda</option>
+                <option>Saint Helena</option>
+                <option>Saint Kitts and Nevis</option>
+                <option>Saint Lucia</option>
+                <option>Saint Pierre and Miquelon</option>
+                <option>Saint Vincent and the Grenadines</option>
+                <option>Samoa</option>
+                <option>San Marino</option>
+                <option>Sao Tome and Principe</option>
+                <option>Saudi Arabia</option>
+                <option>Senegal</option>
+                <option>Serbia</option>
+                <option>Seychelles</option>
+                <option>Sierra Leone</option>
+                <option>Singapore</option>
+                <option>Slovakia</option>
+                <option>Slovenia</option>
+                <option>Solomon Islands</option>
+                <option>Somalia</option>
+                <option>South Africa</option>
+                <option>South Georgia and the South Sandwich Islands</option>
+                <option>Spain</option>
+                <option>Sri Lanka</option>
+                <option>Sudan</option>
+                <option>Suriname</option>
+                <option>Svalbard and Jan Mayen Islands</option>
+                <option>Swaziland</option>
+                <option>Sweden</option>
+                <option>Switzerland</option>
+                <option>Syria</option>
+                <option>Taiwan</option>
+                <option>Tajikistan</option>
+                <option>Tanzania</option>
+                <option>Thailand</option>
+                <option>Togo</option>
+                <option>Tokelau</option>
+                <option>Tonga</option>
+                <option>Trinidad and Tobago</option>
+                <option>Tunisia</option>
+                <option>Turkey</option>
+                <option>Turkmenistan</option>
+                <option>Turks and Caicos Islands</option>
+                <option>Tuvalu</option>
+                <option>Uganda</option>
+                <option>Ukraine</option>
+                <option>United Arab Emirates</option>
+                <option>United Kingdom</option>
+                <option selected="selected">United States of America</option>
+                <option>Uruguay</option>
+                <option>Uzbekistan</option>
+                <option>Vanuatu</option>
+                <option>Vatican City</option>
+                <option>Venezuela</option>
+                <option>Vietnam</option>
+                <option>Virgin Islands (British)</option>
+                <option>Virgin Islands (US)</option>
+                <option>Wallis and Futuna Islands</option>
+                <option>Western Sahara</option>
+                <option>Yemen</option>
+                <option>Zaire</option>
+                <option>Zambia</option>
+                <option>Zimbabwe</option>
+	    	</select>
+		
+			<br>
+		<br>
+		
+		<!-- Demographics  button -->
+        <p align="center">
+                <input type="button" class="demographics jspsych-btn" id="demographicsButton" value="Next >"
+                       onclick="demographicsButtonClick()">
+       </p>
+	</div>	
+      
+      
+  </body>
+
+  <script>
+	  
+    
+      
+      
+	  /* initialise */
+      var timeline=[];
+      var introloop=[];
+	  var testorder = jsPsych.randomization.shuffle([1, 2, 3, 4, 5, 6, 7, 8]);
+	  var condition = jsPsych.randomization.shuffle(["category","property"])[0];
+      var baserate = jsPsych.randomization.shuffle(["small","large"])[0];
+      var turkcode = (Math.floor(Math.random() * 899999) + 100000).toString(); // generate completion code
+      
+      
+            
+        // ----------------------- legacy stuff ------------------
+
+        // move to the specified location
+        function scrollTo(hash) {
+            location.hash = "#" + hash;
+        }
+
+        // get the value of a radio button
+        function getRadioButton(name) {
+            var i, radios = document.getElementsByName(name);
+            for (i = 0; i < radios.length; i = i + 1) {
+                if (radios[i].checked) {
+                    return (radios[i].value);
+                }
+            }
+            return("NA")
+        }
+
+        // function to change the display property of a set of objects
+        function setDisplay(theClass, theValue) {
+            var i, classElements = document.getElementsByClassName(theClass);
+            for (i = 0; i < classElements.length; i = i + 1) {
+                classElements[i].style.display = theValue;
+            }
+        }
+
+        // function to change the visibility property of a set of objects
+        function setVisibility(theClass, theValue) {
+            var i, classElements = document.getElementsByClassName(theClass);
+            for (i = 0; i < classElements.length; i = i + 1) {
+                classElements[i].style.visibility = theValue;
+            }
+        }
+
+        // set the focus
+        function setFocus(theElement) {
+            document.getElementById(theElement).focus();
+        }
+
+        // alter the header
+        function setHeader(theValue) {
+            document.getElementById("header").innerText = theValue;
+        }
+
+        // alter the border (on one of the instruction boxes)
+        function setBoxBorder(whichBox, theValue) {
+            document.getElementById('instruction' + whichBox + 'inner').style.border = theValue;
+        }
+
+        // clear all the check marks for the radio buttons 
+        function clearCheckRadio() {
+            var i, radios = document.getElementsByClassName('checkRadio');
+            for (i = 0; i < radios.length; i = i + 1) {
+                radios[i].checked = false;
+            }
+        }
+
+        // ------------- handle the introductory stuff ----------------
+
+        function splashButtonClick() {
+            setDisplay('start', 'none');
+            setDisplay('consent', '');
+            setHeader(' ');
+        }
+
+        function consentButtonClick() {
+            setDisplay('consent', 'none');
+            setDisplay('demographics', '');
+            setHeader(' ');
+        }
+
+      /* save and finish */ 
+      function endExperiment(dataset,callback) {
+          
+         // $.post('submit',{"content": dataset});
+          setTimeout(callback,1000) 
+          
+      }
+      
+      
+      /* start the experiment */
+      function startExperiment(){
+
+          //document.getElementById("splash").style.display = "none";
+          jsPsych.init({
+            timeline: timeline,
+            preload_images: images,
+            on_finish: function() { 
+                endExperiment( jsPsych.data.dataAsCSV(), function() {
+                                        document.write('<div id="endscreen" class="endscreen" style="width:1000px"><div class="endscreen" style="text-align:center; border:0px solid; padding:10px; font-size:120%; width:800px; float:right"><p><br><br><br>All done!<br><br>Your completion code is <span id="turkcode" style="font-weight:bold;font-size:130%">' + turkcode + '</span>. To receive payment for the HIT, return to the Amazon Mechanical Turk page and enter this code. Please contact us if something goes wrong and we\'ll fix it as quickly as possible.</p></div></div>')
+                    } 
+                )
+            }
+          });
+      }
+      
+        function demographicsButtonClick() {
+            setDisplay('demographics', 'none');
+            setDisplay('header','none')
+            //setHeader('');
+
+            //data.other.gender = getRadioButton("gender");
+            //data.other.age = document.getElementById("age").value;
+            //data.other.language = document.getElementById("language").value;
+            //data.other.country = document.getElementById("country").value;
+
+            // record the condition assignment in the jsPsych data
+            jsPsych.data.addProperties({
+                gender: getRadioButton("gender"),
+                age: document.getElementById("age").value,
+                language: document.getElementById("language").value,
+                country: document.getElementById("country").value
+            });
+            
+            
+            // record the condition assignment in the jsPsych data
+            jsPsych.data.addProperties({
+                sampling: condition,
+                baserate: baserate,
+                turkcode: turkcode
+            });
+            
+            startExperiment();
+        }
+
+      
+      // -------------------- main expt ----------------
+      
+
+	  /* function that generates test string */
+	  function testString(ind) {
+		  var str;
+		  str = "<img src='./img/test" + ind + ".jpg' width=800px><p width=800px><span id='qqqqq' style='display:none'>In your opinion, how likely is it that a Sodor sphere of this size has a plaxium coating?</span></p>"
+	  	return(str)
+	  } 
+
+      /* define setup block */
+      var setup_block = {
+          type: 'button-response',
+          timing_post_trial: 0,
+	      button_html: '<button class="jspsych-btn" style="display:none">%choice%</button>',
+          choices: ['Click here to continue'],
+          on_trial_start: function() { setTimeout(function() {setDisplay("jspsych-btn","")}, 3000)},
+          is_html: true,
+          timeline: [
+              {stimulus: '<img src="./img/robot1.jpg" width=800px>'},
+		      {stimulus: '<img src="./img/robot2.jpg" width=800px>'},
+              {stimulus: '<img src="./img/robot3_' + baserate + '.jpg" width=800px>'}, 
+              {stimulus: '<img src="./img/robot4_' + baserate + '.jpg" width=800px>'},
+              {stimulus: '<img src="./img/robot5_' + baserate + '.jpg" width=800px>'},
+              {stimulus: '<img src="./img/robot6.jpg" width=800px>'},
+              {stimulus: '<img src="./img/robot7.jpg" width=800px>'},
+              {stimulus: '<img src="./img/robot8_' + condition + '.jpg" width=800px>'},
+              {stimulus: '<img src="./img/robot9_' + condition + '.jpg" width=800px>'},
+              {stimulus: '<img src="./img/robot10_' + baserate + '_' + condition + '.jpg" width=800px>'}
+          ]
+      };
+      introloop.push(setup_block);
+      
+      
+      
+      
+      /* define instruction check block */
+      var instructioncorrect = false;
+      var q3a; 
+      if(condition == "category") {
+          q3a = [" Yes, it checks every sphere it encounters"," No, it only tests the small spheres"];
+      } else {
+          q3a = [" Yes, it checks every sphere it encounters"," No, it only tests spheres with the plaxium coating"];         
+      }
+      
+	  var instruction_check = {
+          type: "survey-multi-choice",
+          preamble: ["<p align='center'><b>Check your knowledge before you begin!</b></p>"],
+          questions: ["<b>Question 1</b>: What is your goal in this task?", "<b>Question 2</b>: Are some kinds of Sodor sphere very rare?","<b>Question 3</b>: Does the probe transmit data about any sphere it encounters?"],
+          options: [[" To find out if the planet Sodor is made of cheese"," To find out which Sodor spheres have plaxium coatings"],[" Yes, large spheres are rare", " Yes, small spheres are rare", " No, they are equally common"],q3a],
+          on_finish: function(data) {
+              
+              if(condition == "category" & baserate == "small") {
+                if( data.responses == '{"Q0":" To find out which Sodor spheres have plaxium coatings","Q1":" Yes, large spheres are rare","Q2":" No, it only tests the small spheres"}') {
+                  action = false;
+                  instructioncorrect = true;
+                }
+              }
+              
+              if(condition == "property" & baserate == "small") {
+                if( data.responses == '{"Q0":" To find out which Sodor spheres have plaxium coatings","Q1":" Yes, large spheres are rare","Q2":" No, it only tests spheres with the plaxium coating"}') {
+                  action = false;
+                  instructioncorrect = true;
+                }
+              }
+              
+             if(condition == "category" & baserate == "large") {
+                if( data.responses == '{"Q0":" To find out which Sodor spheres have plaxium coatings","Q1":" Yes, small spheres are rare","Q2":" No, it only tests the small spheres"}') {
+                  action = false;
+                  instructioncorrect = true;
+                }
+              }
+              
+              if(condition == "property" & baserate == "large") {
+                if( data.responses == '{"Q0":" To find out which Sodor spheres have plaxium coatings","Q1":" Yes, small spheres are rare","Q2":" No, it only tests spheres with the plaxium coating"}') {
+                  action = false;
+                  instructioncorrect = true;
+                }
+              }
+              
+              //console.log(hack)
+          }
+      }
+      introloop.push(instruction_check)
+      
+      var showsplash = true;
+      var splash_screen = {
+          type: 'button-response',
+          timing_post_trial: 0,
+	      button_html: '<button class="jspsych-btn" style="display:none">%choice%</button>',
+          choices: ['Click here to read the instructions again'],
+          on_trial_start: function() { setTimeout(function() {setDisplay("jspsych-btn","")}, 1000)},
+          is_html: true,
+          stimulus: '<img src = "./img/instructionfail.jpg" width=800px>'
+      }
+      
+      var conditional_splash = {
+          timeline: [splash_screen],
+          conditional_function: function(data) {
+              return !instructioncorrect // skip if correct
+          }
+      }
+      introloop.push(conditional_splash)
+      
+      var loop_node = {
+          timeline: introloop,
+          loop_function: function(data) {
+              //var action = true;
+              return !instructioncorrect // stop looping if correct
+              
+              
+          }
+      }
+      timeline.push(loop_node)
+      
+      
+      /* success trial */
+      var successtrial = {
+          type: 'button-response',
+          timing_post_trial: 0,
+	      button_html: '<button class="jspsych-btn" style="display:none">%choice%</button>',
+          choices: ['Click here to begin the mission'],
+          on_trial_start: function() { setTimeout(function() {setDisplay("jspsych-btn","")}, 1000)},
+          is_html: true,
+          timeline: [
+              {stimulus: '<img src = "./img/instructionsuccess_' + baserate + '_' + condition + '.jpg" width=800px>'},
+              {stimulus: '<img src = "./img/dataX_' + baserate + '_' + condition + '.jpg" width=800px>'}
+            ]
+      };
+      timeline.push(successtrial);
+	  
+      
+      
+	  /* define observation trial */
+      var arrivalprompt;
+      if(condition == "property") {
+          arrivalprompt = "The probe has detected a sphere with plaxium: Click here to view";
+      } else {
+          arrivalprompt = "The probe has found and tested a small sphere: Click here to view";  
+      }
+      var waitprompt = "<p align='center' style='color:white'>...</p>";
+
+      var obs_block = {
+          type: 'button-response',
+          timing_post_trial: 0,
+	      button_html: '<button class="jspsych-btn" style="display:none">%choice%</button>',
+          choices: [arrivalprompt],
+          on_trial_start: function() { setTimeout(function() {setDisplay("jspsych-btn","")}, (Math.random() * 3000) + 3000)},
+          is_html: true,
+          timeline: [
+              {stimulus: '<img src = "./img/data0_' + baserate + '_' + condition + '.jpg" width=800px>'},
+              {stimulus: '<img src = "./img/data1_' + baserate + '_' + condition + '.jpg" width=800px>'},
+              {stimulus: '<img src = "./img/data2_' + baserate + '_' + condition + '.jpg" width=800px>'},
+              {stimulus: '<img src = "./img/data3_' + baserate + '_' + condition + '.jpg" width=800px>'},
+              {stimulus: '<img src = "./img/data4_' + baserate + '_' + condition + '.jpg" width=800px>'},
+              {stimulus: '<img src = "./img/data5_' + baserate + '_' + condition + '.jpg" width=800px>'},
+              {stimulus: '<img src = "./img/data6_' + baserate + '_' + condition + '.jpg" width=800px>'},
+              {stimulus: '<img src = "./img/data7_' + baserate + '_' + condition + '.jpg" width=800px>'},
+              {stimulus: '<img src = "./img/data8_' + baserate + '_' + condition + '.jpg" width=800px>'},
+              {stimulus: '<img src = "./img/data9_' + baserate + '_' + condition + '.jpg" width=800px>'}
+         ]
+      };
+      timeline.push(obs_block);
+	  
+	  /* define interim block */
+      var interim_block1 = {
+          type: 'button-response',
+          timing_post_trial: 0,
+		  button_html: '<button class="jspsych-btn" style="display:none">%choice%</button>',
+          choices: ['Click here to continue'],
+          on_trial_start: function() { setTimeout(function() {setDisplay("jspsych-btn","")}, 2000)},
+		  is_html: true,
+          timeline: [
+              {stimulus: '<img src = "./img/interim1_' + condition + '.jpg" width=800px>'},
+			  {stimulus: '<img src = "./img/interim2.jpg" width=800px>'}
+          ]
+      };
+      timeline.push(interim_block1);	
+      
+      	  /* define interim block */
+      var interim_block2 = {
+          type: 'button-response',
+          timing_post_trial: 0,
+		  button_html: '<button class="jspsych-btn" style="display:none">%choice%</button>',
+          choices: ['As a reminder, here are all the transmissions you received.<br>Please take a moment to review this information.<br>When you are ready, click here to proceed.'],
+          on_trial_start: function() { setTimeout(function() {setDisplay("jspsych-btn","")}, 500)},
+		  is_html: true,
+          stimulus: '<img src = "./img/data9_' + baserate + '_' + condition + '.jpg" width=800px>'
+      };
+      timeline.push(interim_block2);	
+      
+      
+	  
+      // function to change the display property of a set of objects
+      function setDisplay(theClass, theValue) {
+	       var i, classElements = document.getElementsByClassName(theClass);
+	       for (i = 0; i < classElements.length; i = i + 1) {
+		      classElements[i].style.display = theValue;
+	       }
+      }
+
+      
+	  /* define interim block */
+	  var test_block = {
+	      type: 'button-response', 
+	      choices: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'], 
+		  timing_post_trial: 500, 
+          button_html: '<button class="jspsych-btn" style="display:none">%choice%</button>',
+		  randomize_order: true, // <- HM.
+	      prompt: "<p class='center-content'><span id='zzzzz' style='display:none'>[1 = Definitely does not] &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; [10 = Definitely does]</span></p>",
+		  is_html: true,
+          on_trial_start: function() { setTimeout(function() {document.getElementById("zzzzz").style.display = ""; document.getElementById("qqqqq").style.display = ""; setDisplay("jspsych-btn","")}, 1000)},
+		  timeline: [
+              {stimulus: testString(testorder[0])},
+			  {stimulus: testString(testorder[1])},
+			  {stimulus: testString(testorder[2])},
+              {stimulus: testString(testorder[3])},
+			  {stimulus: testString(testorder[4])},
+			  {stimulus: testString(testorder[5])},
+              {stimulus: testString(testorder[6])},
+			  {stimulus: testString(testorder[7])}
+		  ]
+	  };
+	  timeline.push(test_block);	
+	  
+	  /* image list */
+	  var images = [
+		  './img/robot1.jpg',
+		  './img/robot2.jpg',
+		  './img/robot3_' + baserate + '.jpg', 
+		  './img/robot4_' + baserate + '.jpg',
+	  	  './img/robot5_' + baserate + '.jpg',
+          './img/robot6.jpg',
+          './img/robot7.jpg',
+          './img/robot8_' + condition + '.jpg',
+          './img/robot9_' + condition + '.jpg',
+          './img/robot10_' + baserate + '_' + condition + '.jpg',
+          './img/instructionfail.jpg',
+          './img/instructionsuccess_' + baserate + '_' + condition + '.jpg',
+		  './img/data0_' + baserate + '_' + condition + '.jpg',
+		  './img/data1_' + baserate + '_' + condition + '.jpg',
+		  './img/data2_' + baserate + '_' + condition + '.jpg',
+		  './img/data3_' + baserate + '_' + condition + '.jpg',
+		  './img/data4_' + baserate + '_' + condition + '.jpg',
+		  './img/data5_' + baserate + '_' + condition + '.jpg',
+		  './img/data6_' + baserate + '_' + condition + '.jpg',
+		  './img/data7_' + baserate + '_' + condition + '.jpg',
+		  './img/data8_' + baserate + '_' + condition + '.jpg',
+		  './img/data9_' + baserate + '_' + condition + '.jpg',
+		  './img/interim1_' + condition + '.jpg',
+		  './img/interim2_' + baserate + '_' + condition + '.jpg',
+		  './img/interim3_' + baserate + '_' + condition + '.jpg',          
+		  './img/test1.jpg',
+		  './img/test2.jpg',
+		  './img/test3.jpg',
+		  './img/test4.jpg',
+		  './img/test5.jpg',
+		  './img/test6.jpg',
+		  './img/test7.jpg',
+		  './img/test8.jpg'
+	  ];
+
+      
+      
+
+      
+      
+      
+     // startExperiment();
+   
+      
+  </script>
+</html>
