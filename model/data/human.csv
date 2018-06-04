@@ -1,0 +1,95 @@
+test,prediction,experiment,sampling,condition
+1,0.9,E1: Negative Evidence,Category,Positive & Negative
+1,0.916,E1: Negative Evidence,Property,Positive & Negative
+1,0.9359999999999999,E1: Negative Evidence,Category,Positive Only
+1,0.876,E1: Negative Evidence,Property,Positive Only
+2,0.54,E1: Negative Evidence,Category,Positive & Negative
+2,0.44400000000000006,E1: Negative Evidence,Property,Positive & Negative
+2,0.8119999999999999,E1: Negative Evidence,Category,Positive Only
+2,0.584,E1: Negative Evidence,Property,Positive Only
+3,0.33599999999999997,E1: Negative Evidence,Category,Positive & Negative
+3,0.32799999999999996,E1: Negative Evidence,Property,Positive & Negative
+3,0.704,E1: Negative Evidence,Category,Positive Only
+3,0.52,E1: Negative Evidence,Property,Positive Only
+4,0.236,E1: Negative Evidence,Category,Positive & Negative
+4,0.176,E1: Negative Evidence,Property,Positive & Negative
+4,0.616,E1: Negative Evidence,Category,Positive Only
+4,0.356,E1: Negative Evidence,Property,Positive Only
+5,0.11200000000000002,E1: Negative Evidence,Category,Positive & Negative
+5,0.128,E1: Negative Evidence,Property,Positive & Negative
+5,0.44800000000000006,E1: Negative Evidence,Category,Positive Only
+5,0.21200000000000002,E1: Negative Evidence,Property,Positive Only
+6,0.11599999999999999,E1: Negative Evidence,Category,Positive & Negative
+6,0.068,E1: Negative Evidence,Property,Positive & Negative
+6,0.384,E1: Negative Evidence,Category,Positive Only
+6,0.156,E1: Negative Evidence,Property,Positive Only
+1,0.8440545808966862,E2: Sample Size,Category,N = 12
+2,0.8343079922027291,E2: Sample Size,Category,N = 12
+3,0.7105263157894737,E2: Sample Size,Category,N = 12
+4,0.5994152046783625,E2: Sample Size,Category,N = 12
+5,0.5243664717348928,E2: Sample Size,Category,N = 12
+6,0.4922027290448343,E2: Sample Size,Category,N = 12
+7,0.46393762183235865,E2: Sample Size,Category,N = 12
+1,0.6744639376218324,E2: Sample Size,Category,N = 2
+2,0.695906432748538,E2: Sample Size,Category,N = 2
+3,0.652046783625731,E2: Sample Size,Category,N = 2
+4,0.5682261208576997,E2: Sample Size,Category,N = 2
+5,0.5058479532163742,E2: Sample Size,Category,N = 2
+6,0.4619883040935673,E2: Sample Size,Category,N = 2
+7,0.442495126705653,E2: Sample Size,Category,N = 2
+1,0.8128654970760234,E2: Sample Size,Category,N = 6
+2,0.7962962962962963,E2: Sample Size,Category,N = 6
+3,0.6647173489278753,E2: Sample Size,Category,N = 6
+4,0.5526315789473685,E2: Sample Size,Category,N = 6
+5,0.46881091617933723,E2: Sample Size,Category,N = 6
+6,0.42787524366471735,E2: Sample Size,Category,N = 6
+7,0.40155945419103317,E2: Sample Size,Category,N = 6
+1,0.7957957957957958,E2: Sample Size,Property,N = 12
+2,0.7997997997997998,E2: Sample Size,Property,N = 12
+3,0.5815815815815816,E2: Sample Size,Property,N = 12
+4,0.34134134134134136,E2: Sample Size,Property,N = 12
+5,0.25125125125125125,E2: Sample Size,Property,N = 12
+6,0.2122122122122122,E2: Sample Size,Property,N = 12
+7,0.2112112112112112,E2: Sample Size,Property,N = 12
+1,0.6426426426426427,E2: Sample Size,Property,N = 2
+2,0.6896896896896897,E2: Sample Size,Property,N = 2
+3,0.5825825825825826,E2: Sample Size,Property,N = 2
+4,0.5205205205205206,E2: Sample Size,Property,N = 2
+5,0.44344344344344344,E2: Sample Size,Property,N = 2
+6,0.4094094094094094,E2: Sample Size,Property,N = 2
+7,0.4074074074074074,E2: Sample Size,Property,N = 2
+1,0.7397397397397397,E2: Sample Size,Property,N = 6
+2,0.7717717717717717,E2: Sample Size,Property,N = 6
+3,0.6096096096096096,E2: Sample Size,Property,N = 6
+4,0.3953953953953954,E2: Sample Size,Property,N = 6
+5,0.3053053053053053,E2: Sample Size,Property,N = 6
+6,0.2782782782782783,E2: Sample Size,Property,N = 6
+7,0.24324324324324323,E2: Sample Size,Property,N = 6
+1,0.905050505050505,E4: Base Rate,Category,C+ Rare
+1,0.8587746625129803,E4: Base Rate,Category,C+ Common
+1,0.7527527527527528,E4: Base Rate,Property,C+ Rare
+1,0.5380116959064327,E4: Base Rate,Property,C+ Common
+2,0.8757575757575757,E4: Base Rate,Category,C+ Rare
+2,0.8608515057113189,E4: Base Rate,Category,C+ Common
+2,0.7517517517517517,E4: Base Rate,Property,C+ Rare
+2,0.6093567251461988,E4: Base Rate,Property,C+ Common
+3,0.6747474747474747,E4: Base Rate,Category,C+ Rare
+3,0.7954309449636552,E4: Base Rate,Category,C+ Common
+3,0.5525525525525525,E4: Base Rate,Property,C+ Rare
+3,0.6058479532163743,E4: Base Rate,Property,C+ Common
+4,0.5151515151515151,E4: Base Rate,Category,C+ Rare
+4,0.6863966770508827,E4: Base Rate,Category,C+ Common
+4,0.3813813813813814,E4: Base Rate,Property,C+ Rare
+4,0.5251461988304094,E4: Base Rate,Property,C+ Common
+5,0.40606060606060607,E4: Base Rate,Category,C+ Rare
+5,0.5773624091381101,E4: Base Rate,Category,C+ Common
+5,0.2852852852852853,E4: Base Rate,Property,C+ Rare
+5,0.487719298245614,E4: Base Rate,Property,C+ Common
+6,0.35858585858585856,E4: Base Rate,Category,C+ Rare
+6,0.5160955347871236,E4: Base Rate,Category,C+ Common
+6,0.2342342342342342,E4: Base Rate,Property,C+ Rare
+6,0.43157894736842106,E4: Base Rate,Property,C+ Common
+7,0.3373737373737373,E4: Base Rate,Category,C+ Rare
+7,0.4849428868120457,E4: Base Rate,Category,C+ Common
+7,0.17917917917917917,E4: Base Rate,Property,C+ Rare
+7,0.4280701754385965,E4: Base Rate,Property,C+ Common
