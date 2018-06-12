@@ -1,23 +1,27 @@
 ## Modelling scripts
 
-Code and (somewhat preprocessed) data for the Gaussian process model for inductive reasoning described in the sampling frames paper. 
+Code and (somewhat preprocessed) data for the Gaussian process model for inductive reasoning described in:
 
-In the `source` directory there are five scripts:
+Hayes, Banner, Forrester & Navarro (in preparation). *Sampling frames and inductive inference.* Manuscript in preparation
+
+In the `source` directory there are several scripts:
 
 - `category.bug` and `property.bug` are the JAGS model files that implement the Gaussian process model with censored sampling
 - `simulations.R` runs the JAGS simulations for every condition in the three experiments that we model (E1, E2 and E4), and saves the results to the `output` directory
 - `plotsims.R` reads the results of the simulations as well as the human data, and draws two pretty pictures summarising the whole thing 
 - `aggregate_experiments.R` reads data from the original CSV files and writes the tidied `human.csv` file
+- the various "robustness" scripts (`robustness_E1.R`, `robustness_E2.R`, `robustness_E4.R`, `run_robustness.R` and `aggregate_robustness.R`) run the robustness analysis described in Appendix B. The results are written to timestamped files in the output directory.
 
 In the `data` directory there are five CSV files
 
 - `expt1.csv`, `expt2.csv` etc contain the data from each experiment separately. They've been preprocessed by different people and so they don't have consistent formatting
-- `human.csv` is the aggregated version with all data from E1, E2 and E4 in a single data set with consistent naming (and also consistent with the naming used within the modelling)
+- `human.csv` is the aggregated version with all data from E1, E2 and E4 in a single data set with consistent naming (and also consistent with the naming used within the modelling) 
 
-In the `output` directory there are three files:
+In the `output` directory there are three files & three directories:
 
 - `simulations.Rdata` contains the output from simulating the GP model. It contains the `make` function used to construct each simulation, and `sim`, a list that includes each separate condition (14 in total) as an element. See below for a summary of what each of these elements contains
 - `fits_lines.pdf` and `fits_scatter.pdf` are the summary pictures showing human and model performance in each condition
+- the three `robust` directories contain all the simulation outputs from the robustness simulations.
 
 The elements of a `sim` list (e.g., `sim$category_positive_only`) contain the following elements:
 

@@ -19,10 +19,6 @@ model {
     phi[i] <- 1/(1+exp(-f[i]))
   }
 
-  # category base rates aren't relevant to category sampling unless
-  # there are some unconstrained observations
-  base ~ ddirch(alpha)
-
   # category sampling: the N observations are all sampled with the
   # constraint that they come from the target category (i.e. test[1])
   for(i in 1:nobs) {
@@ -30,13 +26,41 @@ model {
   }
 
   # xxxxx
-  # non-target items only appear if the censor is violated. if there is
-  # any non-target evidence it is assumed to be sampled from the *joint*
-  # distribution over categories and plaxium status
+  # inverted category sampling can take two forms. either, it could be
+  # assume the categories are fixed, or it could be assume that they are
+  # constrained only to be not-small-birds but otherwise chosen from
+  # base rates
+
+  # version 1: fixed categories... probability of P- given C is just the
+  # bernoulli probability
   for(i in 1:nfree) {
-    p_free[i] <- phi[category_free[i]] #* base[category_free[i]]
+    p_free[i] <- phi[category_free[i]]
     plaxium_free[i] ~ dbern(p_free[i])
   }
+
+  # version 2: random not-small-birds... include the probability of P-
+  # given the categories, but we also need to assign probability to the
+  # specific not-bird category
+
+  # category base rates sampled from dirichlet prior
+  base ~ ddirch(alpha)
+
+  # assign small bird probability zero
+  base2[1] <- 0
+  denom_b2 <- sum(base[2:ncat])
+  for(i in 2:ncat) {
+    base2[i] <- base[i] / denom_b2
+  }
+
+  # now sample the specific categories
+  for(i in 1:nfree) {
+    category_free[i] ~ dcat(base2)
+  }
+
+  # NOTE: they yield the same inference about phi, I think, because
+  # the specific distribution of negative observations does not depend
+  # on phi???
+
   # ooooo
 
 }

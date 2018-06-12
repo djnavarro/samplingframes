@@ -37,12 +37,15 @@ model {
   }
 
   # xxxxx
-  # negative evidence only appears if the censor is violated. if there is
-  # any negative evidence it is assumed to be sampled from the *joint*
-  # distribution over categories and plaxium status
+  # property sampling inverted frame...
+
+  denom_neg <- sum((1-phi) * base)
+  for(i in 1:ncat) {
+    pcat_neg[i] <- ((1 - phi[i]) * base[i]) / denom_neg
+  }
+  
   for(i in 1:nfree) {
-    p_free[i] <- phi[category_free[i]] #* base[category_free[i]]
-    plaxium_free[i] ~ dbern(p_free[i])
+    category_free[i] ~ dcat(pcat_neg)
   }
   # ooooo
 

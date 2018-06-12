@@ -4,6 +4,7 @@ library(magrittr)
 library(dplyr)
 library(readr)
 library(purrr)
+library(stringr)
 
 load(here("output","simulations.Rdata"))
 
@@ -51,6 +52,12 @@ output$exp_panel <- map2_chr(
   .y = output$sampling %>% str_sub(1,3),
   .f = function(x,y) {paste0(x," (",y,")")}
 )
+
+# relabel to be consistent with paper
+levels(output$condition) %<>% 
+  str_replace(fixed("C+ Common"), "C- Rare") %>%
+  str_replace(fixed("C+ Rare"), "C- Common")
+
 
 dividers <- data.frame(
   exp_panel = c("E1: Neg Ev (Cat)", "E1: Neg Ev (Pro)", "E2: SS (Cat)", 

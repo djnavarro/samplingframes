@@ -107,12 +107,12 @@ m1 <- 0
 
 # baseline conditions in the negative evidence condition
 sim$category_positive_only <- make(
-  bugfile = here("category.bug"),
+  bugfile = here("source","category.bug"),
   obs = list(m = m1)
 )
 
 sim$property_positive_only <- make(
-  bugfile = here("property.bug"),
+  bugfile = here("source","property.bug"),
   obs = list(m = m1)
 )
 
@@ -121,13 +121,13 @@ sim$property_positive_only <- make(
 #
 # .... currently doesn't work???
 sim$category_negative_evidence <- make(
-  bugfile = here("category.bug"),
+  bugfile = here("source","category.bug"),
   obs = list(nfree = 5, plaxium_free = rep.int(0,5), 
              category_free = c(2,3,4,5,6), m = m1)
 )
 
 sim$property_negative_evidence <- make(
-  bugfile = here("property.bug"),
+  bugfile = here("source","property.bug"),
   obs = list(nfree = 5, plaxium_free = rep.int(0,5), 
              category_free = c(2,3,4,5,6), m = m1)
 )
@@ -143,32 +143,32 @@ sim$property_negative_evidence <- make(
 
 # sample size affects both
 sim$category_n2 <- make(
-  bugfile = here("category.bug"),
+  bugfile = here("source","category.bug"),
   obs = list(nobs = 2, category = c(1,2))
 )
 
 sim$category_n6 <- make(
-  bugfile = here("category.bug"),
+  bugfile = here("source","category.bug"),
   obs = list(nobs = 6, category = rep.int(c(1,2),3))
 )
 
 sim$category_n12 <- make(
-  bugfile = here("category.bug"),
+  bugfile = here("source","category.bug"),
   obs = list(nobs = 12, category = rep.int(c(1,2),6))
 )
 
 sim$property_n2 <- make(
-  bugfile = here("property.bug"),
+  bugfile = here("source","property.bug"),
   obs = list(nobs = 2, category = c(1,2))
 )
 
 sim$property_n6 <- make(
-  bugfile = here("property.bug"),
+  bugfile = here("source","property.bug"),
   obs = list(nobs = 6, category = rep.int(c(1,2),3))
 )
 
 sim$property_n12 <- make(
-  bugfile = here("property.bug"),
+  bugfile = here("source","property.bug"),
   obs = list(nobs = 12, category = rep.int(c(1,2),6))
 )
 
@@ -182,14 +182,17 @@ sim$property_n12 <- make(
 # the only model parameter we change from defaults is the 
 # dirichlet parameter associated with the small categories
 
+# NOTE -- THE PAPER LATER REVERSED THE CONVENTION. THIS IS
+# ALL CODED AS "RARE CAT" = "C+ RARE"
+
 sim$category_rare_cat <- make(
-  bugfile = here("category.bug"),
+  bugfile = here("source","category.bug"),
   obs = list(alpha = c(.01, .01, rep.int(.35, 8)),
              nobs = 9, category = c(1,1,1,1,2,2,2,2,2))
 )
 
 sim$category_common_cat <- make(
-  bugfile = here("category.bug"),
+  bugfile = here("source","category.bug"),
   obs = list(alpha = c(20, 20, rep.int(.35, 8)),
              nobs = 9, category = c(1,1,1,1,2,2,2,2,2))
 )
@@ -197,13 +200,13 @@ sim$category_common_cat <- make(
 # the base rate manipulation only affects property
 # sampling in the model (unless parameters change)
 sim$property_rare_cat <- make(
-  bugfile = here("property.bug"),
+  bugfile = here("source","property.bug"),
   obs = list(alpha = c(.01, .01, rep.int(.35, 8)),
              nobs = 9, category = c(1,1,1,1,2,2,2,2,2))
 )
 
 sim$property_common_cat <- make(
-  bugfile = here("property.bug"),
+  bugfile = here("source","property.bug"),
   obs = list(alpha = c(20, 20, rep.int(.35, 8)),
              nobs = 9, category = c(1,1,1,1,2,2,2,2,2))
 )
