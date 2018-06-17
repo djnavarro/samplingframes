@@ -22,4 +22,4 @@ Currently missing are:
 
 ## Manuscript
 
-- To be added?
+- Contains the preprint file `HayesBFN_frames.pdf`
